@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+    <h1>🐾 Добро пожаловать в мир животных! 🐾</h1>
+    
+    <p style="text-align: center; font-size: 22px;">
+        Здесь вы найдете информацию о ваших любимых питомцах!
+    </p>
+    
+    <table width="100%" cellpadding="15">
+        <tr align="center">
+            <td style="background: #ffe4e1; border-radius: 20px;">
+                <h2>😺 Кошки</h2>
+                <p>Грациозные, загадочные и очень ласковые</p>
+                <a href="/cats/">
+                    <button class="button">К котикам →</button>
+                </a>
+            </td>
+            <td style="background: #e3f2fd; border-radius: 20px;">
+                <h2>🐶 Собаки</h2>
+                <p>Самые верные друзья человека!</p>
+                <a href="/dogs/">
+                    <button class="button">К собачкам →</button>
+                </a>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="background: #f5f5dc; padding: 15px; border-radius: 20px; margin-top: 20px;">
+        <h3 style="text-align: center;">✨ Интересный факт ✨</h3>
+        <p style="text-align: center; font-style: italic;">
+            "Собаки смотрят на нас как на богов, а кошки смотрят на нас как на слуг"
+        </p>
+    </div>
+{% endblock %}
