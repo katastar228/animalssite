@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Всё о кошках{% endblock %}
+
+{% block content %}
+    <h1>😺 Всё о кошках</h1>
+
+    <div style="text-align: center; margin: 20px;">
+        <a href="/cats/">
+            <button class="button">🏠 Главная о кошках</button>
+        </a>
+        <a href="/cats/breeds">
+            <button class="button">🐱 Породы</button>
+        </a>
+        <a href="/cats/care">
+            <button class="button">🧼 Уход</button>
+        </a>
+    </div>
+
+    {% if page == 'breeds' %}
+        <h2>Породы кошек</h2>
+        <table width="100%" cellpadding="10" border="1" style="border-color: #ffb6c1;">
+            <tr style="background: #ffb6c1;">
+                <th>Порода</th>
+                <th>Описание</th>
+            </tr>
+            {% for breed in breeds %}
+            <tr style="background: #fff0f5;">
+                <td><b>{{ breed.name }}</b></td>
+                <td>{{ breed.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+    {% elif page == 'care' %}
+        <h2>Уход за кошками</h2>
+        <div style="background: #f0fff0; padding: 20px; border-radius: 20px;">
+            <ol>
+                {% for tip in tips %}
+                <li style="margin: 10px; font-size: 18px;">{{ tip }}</li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div style="background: #ffe4e1; padding: 15px; border-radius: 20px; margin-top: 20px;">
+            <b>✨ Важно!</b> Кошек нельзя купать часто!
+        </div>
+
+    {% else %}
+        <div style="text-align: center;">
+            <p style="font-size: 24px;">😺 Мур-мур!</p>
+            <p>Кошки - удивительные создания. Они мурлыкают, когда им хорошо, и всегда находят самое теплое место в доме.</p>
+
+            <div style="background: #ffe4e1; padding: 15px; border-radius: 20px; margin-top: 20px;">
+                <h3>Почему кошки - это прекрасно?</h3>
+                <ul style="text-align: left;">
+                    <li>Они мурлыкают и успокаивают</li>
+                    <li>Очень чистоплотные</li>
+                    <li>Забавно играют</li>
+                    <li>Спят с вами в кроватке</li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
