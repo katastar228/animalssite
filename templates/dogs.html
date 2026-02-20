@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Всё о собаках{% endblock %}
+
+{% block content %}
+    <h1>🐶 Всё о собаках</h1>
+    
+    <div style="text-align: center; margin: 20px;">
+        <a href="/dogs/">
+            <button class="button">🏠 Главная о собаках</button>
+        </a>
+        <a href="/dogs/breeds">
+            <button class="button">🦴 Породы</button>
+        </a>
+        <a href="/dogs/training">
+            <button class="button">🎾 Дрессировка</button>
+        </a>
+    </div>
+    
+    {% if page == 'breeds' %}
+        <h2>Породы собак</h2>
+        <table width="100%" cellpadding="10" border="1" style="border-color: #87ceeb;">
+            <tr style="background: #87ceeb;">
+                <th>Порода</th>
+                <th>Описание</th>
+            </tr>
+            {% for breed in breeds %}
+            <tr style="background: #e6f3ff;">
+                <td><b>{{ breed.name }}</b></td>
+                <td>{{ breed.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+    {% elif page == 'training' %}
+        <h2>Дрессировка собак</h2>
+        <div style="background: #fffacd; padding: 20px; border-radius: 20px;">
+            {% for command in commands %}
+            <p style="font-size: 18px;">✓ <b>{{ command }}</b></p>
+            {% endfor %}
+        </div>
+        <div style="background: #fff3cd; padding: 15px; border-radius: 20px; margin-top: 20px;">
+            <b>✨ Совет:</b> Занимайтесь каждый день по 10 минут. Хвалите собаку!
+        </div>
+    
+    {% else %}
+        <div style="text-align: center;">
+            <p style="font-size: 24px;">🐕 Гав-гав!</p>
+            <p>Собаки живут с нами уже тысячи лет. Они понимают наши эмоции и дарят счастье каждый день!</p>
+            
+            <div style="background: #e3f2fd; padding: 15px; border-radius: 20px; margin-top: 20px;">
+                <h3>Собака - друг человека!</h3>
+                <p><i>"Собака — это единственное существо, которое любит тебя больше, чем себя"</i></p>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
